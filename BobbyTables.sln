@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7529025A-70A2-4389-B3A1-342F2D37CA3B}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BobbyTables.portable", "BobbyTables.Portable\BobbyTables.portable.csproj", "{9DD5B4DB-9266-4209-8CD2-6BDA932A63CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BobbyTables.net45", "BobbyTables.Net45\BobbyTables.net45.csproj", "{1668CC39-F1C0-4765-A5ED-425CE67A3920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BobbyTables.portable45", "BobbyTables.Portable45\BobbyTables.portable45.csproj", "{FA774F8F-500E-4843-A51E-55BC0CAAA939}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1668CC39-F1C0-4765-A5ED-425CE67A3920}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1668CC39-F1C0-4765-A5ED-425CE67A3920}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1668CC39-F1C0-4765-A5ED-425CE67A3920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA774F8F-500E-4843-A51E-55BC0CAAA939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA774F8F-500E-4843-A51E-55BC0CAAA939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA774F8F-500E-4843-A51E-55BC0CAAA939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA774F8F-500E-4843-A51E-55BC0CAAA939}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

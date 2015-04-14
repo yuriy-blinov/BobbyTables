@@ -272,7 +272,7 @@ namespace BobbyTables
 			{
 				foreach (var field in insert.GetType().GetFields())
 				{
-					if (field.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0) 
+					if (!field.IsIgnored()) 
 					{
 						object fieldValue = field.GetValue(insert);
 						if (fieldValue != null)
@@ -283,7 +283,7 @@ namespace BobbyTables
 				}
 				foreach (var prop in insert.GetType().GetProperties())
 				{
-					if (prop.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0)
+					if (!prop.IsIgnored())
 					{
 						object propValue = prop.GetValue(insert, null);
 						// we are only interested in read/writable fields
@@ -354,7 +354,7 @@ namespace BobbyTables
 				{
 					foreach (var field in obj.GetType().GetFields())
 					{
-						if (field.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0)
+						if (!field.IsIgnored())
 						{
 							var data = row.Data[field.Name];
 							if (data != null)
@@ -366,7 +366,7 @@ namespace BobbyTables
 					foreach (var prop in obj.GetType().GetProperties())
 					{
 						// we are only interested in read/writable fields
-						if (prop.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0 && prop.CanRead && prop.CanWrite)
+						if (!prop.IsIgnored() && prop.CanRead && prop.CanWrite)
 						{
 							var data = row.Data[prop.Name];
 							if (data != null)
@@ -429,7 +429,7 @@ namespace BobbyTables
 				{
 					foreach (var field in update.GetType().GetFields())
 					{
-						if (field.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0)
+						if (!field.IsIgnored())
 						{
 							object fieldValue = field.GetValue(update);
 							JToken value = fieldValue != null ? SerializeValue(fieldValue) : null;
@@ -440,7 +440,7 @@ namespace BobbyTables
 					foreach (var prop in update.GetType().GetProperties())
 					{
 						// we are only interested in read/writable fields
-						if (prop.GetCustomAttributes(typeof(IgnoreAttribute), true).Length == 0 && prop.CanRead && prop.CanWrite)
+						if (!prop.IsIgnored() && prop.CanRead && prop.CanWrite)
 						{
 							object propValue = prop.GetValue(update, null);
 							var value = propValue != null ? SerializeValue(propValue) : null;
@@ -718,7 +718,7 @@ namespace BobbyTables
 				obj["B"] = Utils.ToDBase64((byte[])value);
 				return obj;
 			}
-			else if (type.IsEnum)
+			else if (type.IsEnum())
 			{
 				JObject obj = new JObject();
 				Enum.GetUnderlyingType(type);
@@ -739,7 +739,7 @@ namespace BobbyTables
 			{
 				foreach (Type interfaceType in type.GetInterfaces())
 				{
-					if (interfaceType.IsGenericType &&
+					if (interfaceType.IsGenericType() &&
 						interfaceType.GetGenericTypeDefinition()
 						== typeof(IList<>))
 					{
@@ -836,7 +836,7 @@ namespace BobbyTables
 				if (value["I"] != null)
 				{
 					//Integer values
-					if (type.IsEnum)
+					if (type.IsEnum())
 					{
 						return Enum.ToObject(type, value["I"].Value<ulong>());
 					}
@@ -910,7 +910,7 @@ namespace BobbyTables
 				{
 					foreach (Type interfaceType in type.GetInterfaces())
 					{
-						if (interfaceType.IsGenericType &&
+						if (interfaceType.IsGenericType() &&
 							interfaceType.GetGenericTypeDefinition()
 							== typeof(IList<>))
 						{

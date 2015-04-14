@@ -5,6 +5,8 @@
 /BobbyTables.Net45/bin
 /BobbyTables.Portable/obj
 /BobbyTables.Portable/bin
+/BobbyTables.Portable45/obj
+/BobbyTables.Portable45/bin
 /BobbyTables.Tests/obj
 /BobbyTables.Tests/bin
 *.suo
